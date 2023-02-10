@@ -1,0 +1,956 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/patient.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="tp-nb">
+            <li><a href="#"><img src="" alt=""></a></li>
+            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> </a></li>
+            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fas fa-user-shield"></i></a></li>
+            <li><a href="#"><i class="fa fa-shield" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-notes-medical"></i></a></li>
+            <li><a href="#"><i class="fa fa-flask" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class='fas fa-prescription'></i></a></li>
+            <li><a href="#"><i class="fa fa-file-text"></i></a></li>
+            <li><a href="#"><i class="fa fa-dollar"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass-dollar"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-hand-holding-dollar"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-circle-dollar-to-slot"></i></a></li>
+            <li><a href="#"><i class="fas fa-sack-dollar"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-chart-line"></i></a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <div class="left scrbr" id="left">
+            <div class="menu-ng" id="collaps">
+                <a href="#" onclick="nav_collaps()"><i class='fas fa-less-than'></i></a>
+            </div>
+            <div class="menu-ng" id="expand" style="display: none;">
+                <a href="#" onclick="nav_expand()"><i class='fas fa-greater-than'></i></a>
+            </div>
+            <ul class="mymenu">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Damografy</a></li>
+                <li><a href="#">Insurance</a></li>
+                <li><a href="#">Case</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Employee</a></li>
+                <li><a href="#">Apoiment</a></li>
+                <li><a href="#">Encounter</a></li>
+                <li><a href="#">Document</a></li>
+                <li><a href="#">Notes & Alerts</a></li>
+                <li><a href="#">Forms</a></li>
+                <li><a href="#">Consents</a></li>
+                <li><a href="#">Reminder Preference</a></li>
+                <li><hr class="solid"></li>
+                <li><a href="#">Allergy</a></li>
+                <li><a href="#">Diagnosis</a></li>
+                <li><a href="#">Family History</a></li>
+                <li><a href="#">Presciptiion</a></li>
+                <li><a href="#">Lab</a></li>
+                <li><a href="#">Immunisation</a></li>
+                <li><a href="#">Vitals</a></li>
+                <li><hr class="solid"></li>
+                <li><a href="#">Autorization</a></li>
+                <li><a href="#">Claims</a></li>
+                <li><a href="#">Receipts</a></li>
+                <li><a href="#">Open Credits</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Ledger</a></li>
+                <li><hr class="solid"></li>
+                <li><a href="#">Autorization</a></li>
+                <li><a href="#">Claims</a></li>
+                <li><a href="#">Receipts</a></li>
+                <li><a href="#">Open Credits</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Ledger</a></li>
+                <li><hr class="solid"></li>
+                <li><a href="#">Autorization</a></li>
+                <li><a href="#">Claims</a></li>
+                <li><a href="#">Receipts</a></li>
+                <li><a href="#">Open Credits</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Ledger</a></li>
+            </ul>
+            <!-- <button class="menu-ng" style="border: none;"> <i class='fas fa-greater-than'></i></button> -->
+        </div>
+        <div class="mid" id="mid">
+
+            <form action="" class="pt-form" id="pt-data">
+                <header class="hed">
+                    <div class="status">
+                        <div>
+                            <input type="checkbox" id="active" name="active">
+                            <label for="active">Active</label>
+                        </div>
+                        <div>
+                            <button type="button"onclick="putData()" >Re-Verify</button>
+                        </div>
+                        <div>
+                            <button type="reset" onclick="resetdata(event)">Cancel Changes</button>
+                        </div>
+                        <div>
+                            <button class="save" id="save-data" type="submit" onclick="postputdata(event)">save</button>
+                        </div>
+                        <div class="toastr" style="display:none">
+                            <div id="hide-toastr" onclick="hidetoastr()">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                            <div class="toastr-title" id="toastr-title">Success</div>
+                            <div class="toastr-text" id="toastr-text">Patient Data inserted Successfully</div>
+                        </div>
+                    </div>
+                </header>
+                <div class="pt-info scrbr">
+                    <div class="abt-pt border">
+                        <div class="col-pt">
+                            <!--<div class="pt-img">
+                <img src="./image/patient.jfif" alt="patient photo" height="100px" width="100px"><br>
+            </div>
+            <div>
+                <label for="chart_no"></label>
+                <div style="display:inline"> <span id="chart_no"></span></div>
+            </div>-->
+                            <!--<input type="text" id="chart_no" name="chart_no"><br>-->
+                            <label for=""></label>
+                            <div class="right-align pt-img"><img src="./image/patient.jfif" alt="patient photo" height="100px" width="100px"></div><br>
+                            <label for=""></label>
+                            <div class="right-align chart_no">CHART NO</div>
+                            <label>Prefix:</label>
+                            <input type="text" id="prefix" name="prefix"><br>
+                            <label class="required">First name:</label>
+                            <input type="text" id="fname" name="fname" required><br>
+                            <label class="required">Middle name:</label>
+                            <input type="text" id="mname" name="mname"><br>
+                            <label class="required">Last name:</label>
+                            <input type="text" id="lname" name="lname" required><br>
+                            <label>Last name2:</label>
+                            <input type="text" id="lname2" name="lname2"><br>
+                            <label>Suffix</label>
+                            <input type="text" id="suffix" name="suffix"><br>
+                            <label>AKA:</label>
+                            <input type="text" id="aka" name="aka"><br>
+                        </div>
+                        <div class="col-pt">
+                            <label class="required">Sex</label>
+                            <select name="sextype" id="p_sex" required>
+                                <option value="none" selected disabled hidden></option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Unknown</option>
+                            </select> <br>
+                            <label class="required">DOB:</label>
+                            <input type="date" id="dob" name="dob" value="" placeholder="dd-mm-yyyy" min="1997-01-01" max="2030-12-31" required><br>
+                            <label>Pref Language:</label>
+                            <select name="prelan" id="prelan">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="eng">Englsh</option>
+                                <option value="hin">Hindi</option>
+                                <option value="guj">Gujarati</option>
+                            </select> <br>
+                            <label>Status:</label>
+                            <select name="status" id="status">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="regpen">Registration Entry Pending</option>
+                                <option value="immpen">Immunisation pending</option>
+                                <option value="ins12">Insurance12</option>
+                            </select><br>
+                            <label>Interpreter:</label>
+                            <input type="checkbox" id="Interpreter" name="Interpreter"><br>
+                            <label>SSN:</label>
+                            <input type="text" id="ssn" name="ssn"><br>
+                            <label>Marital Status:</label>
+                            <select name="marsta" id="marsta">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="sigle">Single</option>
+                                <option value="marr">Married</option>
+                                <option value="Divorce">Divorce</option>
+                            </select><br>
+                            <label>Race:</label>
+                            <select name="marsta" id="race">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="American">American</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Black">Black</option>
+                            </select><br>
+                            <label>Ethnicity:</label>
+                            <select name="ethnicity" id="ethnicity">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="sigle">Single</option>
+                                <option value="marr">Married</option>
+                                <option value="Divorce">Divorce</option>
+                            </select><br>
+                        </div>
+                        <div class="col-pt">
+                            <label>Self pay:</label>
+                            <input type="checkbox" id="selfpay" name="selfpay"><br>
+                            <label>Default Facility:</label>
+                            <select name="def-faci" id="def-faci">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="fac13">FAC13</option>
+                                <option value="fac14">FAC14</option>
+                                <option value="fac15">FAC15</option>
+                            </select><br>
+                            <label>Default Provider:</label>
+                            <select name="def-provi" id="def-provi">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="copper,john">Copper,john</option>
+                                <option value="botton,amy">Botton,amy</option>
+                                <option value="bruce,ley">Bruce,ley</option>
+                            </select><br>
+                            <label>Time Zone</label>
+                            <select id="time_zone">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                <option value="Alaska">(GMT-09:00) Alaska</option>
+                                <option value="Samoa">(GMT-11:00) Samoa</option>
+                                <option value="Tijuana">(GMT-08:00) Tijuana</option>
+                                <option value="Chihuahua">(GMT-07:00) Chihuahua</option>
+                                <option value="Mazatlan">(GMT-07:00) Mazatlan</option>
+                            </select><br>
+                            <label>Use current pharmacy for all Rx:</label>
+                            <input type="checkbox" id="cur-ph-rx" name="cur-ph-rx"><br>
+                            <label>PCP Same As Provider:</label>
+                            <input type="checkbox" id="pcpprovider" name="pcpprovider"><br>
+                            <label>PCP:</label>
+                            <select name="pcp" id="pcp">
+                                <option value="none" selected disabled hidden></option>
+                                <option value="agrawasumit">Agrawa Sumit</option>
+                                <option value="bhattrohit">Bhatt Rohit</option>
+                                <option value="sharmahritik">Sharma Hritik</option>
+                            </select><br>
+                        </div>
+                    </div>
+                    <div class="cont-det border">
+                        <h2 class="heading">Contact Details</h2>
+                        <a href="#" style="text-decoration: none;" class="plus">
+                            <i class="fa fa-plus-circle " onclick="add_home(this)"></i>
+                        </a>
+                        <p style="padding: 4px 10px; margin: 0px; color: #627d98;">
+                            Please set the preferences after adding the contact
+                            information, the section to set preference can be found below the contact section of the
+                            page.
+                        </p>
+                        <div class="cont-home-work scrbr-x">
+                            <fieldset class="home-cd border" id="cont1">
+                                <legend class="border legend-con-det" style=" border-radius: 5px; padding: 0.2em 0.8em ">
+                                    <div class="home">
+                                        <select name="homel" id="homel">
+                                            <option value="home">Home</option>
+                                            <option value="work">Work</option>
+                                            <option value="other">Other</option>
+                                        </select><br>
+                                    </div>
+                                </legend>
+                                <div class="home-work">
+                                    <div class="address-parent">
+                                        <div class="add-plus">
+                                            <a href="#" style=" text-decoration: none;" class="plus">
+                                                <h4 class="hed-cont">Address</h4>
+                                                <i id="plus-add" style="display: none;" class="fa fa-plus-circle" onclick="add_address(this)"></i>
+                                            </a>
+                                            <a href="#" style="text-decoration: none;" class="trash"
+                                               onclick="delete_home(this)">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div class="address" id="address">
+                                            <div class="street">
+                                                <label for="street">Street:</label><br>
+                                                <input type="text" id="street" name="street">
+                                            </div>
+                                            <div class="add">
+                                                <div class="add-info">
+                                                    <label for="zip">Zip:</label><br>
+                                                    <input type="text" id="zip" name="zip">
+                                                </div>
+                                                <div class="add-info">
+                                                    <label for="city">City:</label><br>
+                                                    <input type="text" id="city" name="city">
+                                                </div>
+                                                <div class="add-info">
+                                                    <label for="state">State:</label><br>
+                                                    <input type="text" id="state" name="state">
+                                                </div>
+                                                <div class="add-info">
+                                                    <label for="country">Country:</label><br>
+                                                    <input type="text" id="country" name="country">
+                                                </div>
+                                                <div class="add-info">
+                                                    <a href="#" style="text-decoration: none;" class="trash"
+                                                       id="trash" onclick="delete_address(this)">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="phone-parent mrgn-tp">
+                                        <h4 class="hed-cont">Phone</h4>
+                                        <a href="#" style="text-decoration: none;" class="plus">
+                                            <i class="fa fa-plus-circle" onclick="add_phone_det(this)"></i>
+                                        </a>
+                                        <div class="phone-det" id="phone-det1">
+                                            <div class="phone-info">
+                                                <label for="type">Type</label><br>
+                                                <hr class="solid">
+                                                <select name="type" id="type">
+                                                    <option value="none" selected disabled hidden></option>
+                                                    <option value="cell">Cell</option>
+                                                    <option value="landline">Landline</option>
+                                                </select>
+                                            </div>
+                                            <div class="phone-info">
+                                                <label for="code">Code</label><br>
+                                                <hr class="solid">
+                                                <select name="code" id="code">
+                                                    <option value="none" selected disabled hidden></option>
+                                                    <option value="+1">+1 UnitedState</option>
+                                                    <option value="+93">+93 Afghanistan</option>
+                                                    <option value="+91">+91 India</option>
+                                                </select>
+                                            </div>
+                                            <div class="phone-info">
+                                                <label for="number">Number</label><br>
+                                                <hr class="solid">
+                                                <input type="text" id="number" name="number">
+                                            </div>
+                                            <div class="phone-info">
+                                                <label for="ext">Ext</label><br>
+                                                <hr class="solid">
+                                                <a href="#" style="text-decoration: none;" class="trash"
+                                                   onclick="delete_phone_det(this)">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fax-parent mrgn-tp">
+                                        <h4 class="hed-cont">Fax</h4>
+                                        <a href="#" style="text-decoration: none;" class="plus">
+                                            <i class="fa fa-plus-circle" onclick="add_fax(this)"></i>
+                                        </a>
+                                    </div>
+                                    <div class="email-parent mrgn-tp">
+                                        <h4 class="hed-cont">Email</h4>
+                                        <a href="#" style="text-decoration: none;" class="plus">
+                                            <i class="fa fa-plus-circle" onclick="add_email(this)"></i>
+                                        </a>
+                                        <div class="email" id="email1">
+                                            <div class="email-dt">
+                                                <input type="email" id="email" name="email">
+                                            </div>
+                                            <div class="email-dt">
+                                                <a href="#" style="text-decoration: none;" class="trash"
+                                                   onclick="delete_email(this)">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="web mrgn-tp">
+                                        <h4 class="hed-cont">Website</h4>
+                                        <a href="#" style="text-decoration: none;" id="plus" class="plus">
+                                            <i class="fa fa-plus-circle" onclick="add_website(this)" id="web+"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="cont-pre border">
+                        <h3 class="heading">Contact Preference</h3>
+                        <div class="table">
+                            <table class="tab">
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Address</td>
+                                    <td>Phone</td>
+                                    <td>Fax</td>
+                                    <td>Email</td>
+                                    <td>Website</td>
+                                </tr>
+                                <tr>
+                                    <td>Apoiment reminder</td>
+                                    <td></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Mailing</td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>Primary</td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                </tr>
+                                <tr>
+                                    <td>Statement</td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                    <td><input type="text" id="blank" name="xyz"></td>
+                                </tr>
+                                <tr>
+                                    <td>Preffered Comm</td>
+                                    <td colspan="3">
+                                        <div class="type" style="display: inline;">
+                                            <label for="type">Type:</label>
+                                            <select name="marsta" id="race">
+                                                <option value="none" selected disabled hidden></option>
+                                                <option value="email">Email</option>
+                                                <option value="call">Call</option>
+                                                <option value="text">Text</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div class="value" style="display: inline;">
+                                            <label for="value">Value:</label>
+                                            <select name="marsta" id="race">
+                                                <option value="none" selected disabled hidden></option>
+                                                <option value="option1">Option1</option>
+                                                <option value="option2">Option2</option>
+                                                <option value="option3">Option3</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="oth-detail border">
+                        <a href="#" style="text-decoration: none;" class="plus" onclick="otherdetail()">
+                            <i id="c_right" class="fa fa-chevron-circle-right"></i><i id="c_down" style="display: none;"
+                                                                                      class="fa fa-chevron-circle-down"></i>
+                        </a>
+                        <h3 class="heading"> Other Details</h3>
+
+                        <div class="oth-det" id="oth-det">
+                            <div class="oth-det-cl">
+                                <label for="employment">Employment:</label>
+                                <select name="employment" id="employment">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="full time employment">Full time employment</option>
+                                    <option value="path time empolyment">Path time employment</option>
+                                    <option value="unemployed">Unemployed</option>
+                                </select><br>
+                                <label for="fcd">First called date:</label>
+                                <input type="date" id="fcd" name="fcd"><br>
+                                <label for="mot-name">Mother's name:</label>
+                                <input type="text" id="mot-name" name="mot-name"><br>
+                                <label for="birth-pl">Birth place:</label>
+                                <input type="text" id="birth-pl" name="birth-pl"><br>
+                                <label for="citizenship">Citizenship:</label>
+                                <select name="citizenship" id="citizenship">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="american">American</option>
+                                    <option value="indian">Indian</option>
+                                </select><br>
+                                <label for="note">Note:</label>
+                                <textarea name="note" style="width: 160px;" id="note" cols="25" rows="3"></textarea>
+                            </div>
+                            <div class="oth-det-cl">
+                                <label for="gender">Gender:</label>
+                                <select name="gender" id="gender">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="other">Other</option>
+                                </select><br>
+                                <label for="ref-sou">Referral Source:</label>
+                                <select name="ref-sou" id="ref-sou">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="Kaiser hospital">Kaiser hospital</option>
+                                </select><br>
+                                <label for="mot-maid">Mother's Maiden:</label>
+                                <input type="text" id="mot-maid" name="mot-maid"><br>
+                                <label for="mot-iden">Mother Identifier:</label>
+                                <input type="text" id="mot-iden" name="mot-iden"><br>
+                                <label for="religion">Religion:</label>
+                                <select name="Religion" id="Religion">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="agnostic">Agnostic</option>
+                                    <option value="kchristian">KChristian: American Baptist Church</option>
+                                </select><br>
+                            </div>
+                            <div class="oth-det-cl">
+                                <label for="sex-orien">Sexual Orientation:</label>
+                                <select name="sex-orien" id="sex-orien">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="bisexual">Bisexual</option>
+                                    <option value="homosexual">Homosexual</option>
+                                    <option value="heterosexual">Heterosexual</option>
+                                </select><br>
+                                <label for="mot-mid-nm">Mother's Middel Name:</label>
+                                <input type="text" id="mot-mid-nm" name="mot-mid-nm"><br>
+                                <label for="nationality">Nationality:</label>
+                                <select name="nationality" id="nationality">
+                                    <option value="none" selected disabled hidden></option>
+                                    <option value="american">American</option>
+                                    <option value="indian">Indian</option>
+                                </select><br>
+                                <label for="dri-license">Driver's License:</label>
+                                <input type="text" id="dri-license" name="dri-license"><br>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="cont-det border">
+         <h2 class="heading">Contact Details</h2>
+         <a href="#" style="color: black; text-decoration: none;" class="plus">
+             <i class="fa fa-plus-circle " onclick="add_home(this)"></i>
+         </a>
+         <p style="padding: 4px 10px; margin: 0px;">
+             Please set the preferences after adding the contact
+             information, the section to set preference can be found below the contact section of the
+             page.
+         </p>
+         <div class="cont-home-work scrbr-x">
+             <fieldset class="home-cd border" id="cont1">
+                 <legend class="border" style=" border-radius: 5px; padding: 0.2em 0.8em ">
+                     <div class="home">
+                         <select name="homel" id="homel" class="home">
+                             <option value="home">Home</option>
+                             <option value="work">Work</option>
+                             <option value="other">Other</option>
+                         </select><br>
+                     </div>
+                 </legend>
+                 <div class="home-work">
+                     <div class="address-parent">
+                         <div class="add-plus">
+                             <a href="#" style="color: black; text-decoration: none;" class="plus">
+                                 Address
+                                 <i id="plus-add" style="display: none;" class="fa fa-plus-circle" onclick="add_address(this)"></i>
+                             </a>
+                             <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                onclick="delete_home(this)">
+                                 <i class="fa fa-trash" aria-hidden="true"></i>
+                             </a>
+                         </div>
+                         <div class="address" id="address">
+                             <div class="street">
+                                 <label for="street">Street:</label><br>
+                                 <input type="text" id="street" name="street">
+                             </div>
+                             <div class="add">
+                                 <div class="add-info">
+                                     <label for="zip">Zip:</label><br>
+                                     <input type="text" id="zip" name="zip">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="city">City:</label><br>
+                                     <input type="text" id="city" name="city">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="state">State:</label><br>
+                                     <input type="text" id="state" name="state">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="country">Country:</label><br>
+                                     <input type="text" id="country" name="country">
+                                 </div>
+                                 <div class="add-info">
+                                     <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                        id="trash" onclick="delete_address(this)">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                     </a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="phone-parent mrgn-tp">
+                         <a href="#" style="color: rgb(0, 0, 0); text-decoration: none;" class="plus">
+                             Phone
+                             <i class="fa fa-plus-circle" onclick="add_phone_det(this)"></i>
+                         </a>
+                         <div class="phone-det" id="phone-det1">
+                             <div class="phone-info">
+                                 <label for="type">Type</label><br>
+                                 <hr class="solid">
+                                 <select name="type" id="type">
+                                     <option value="none" selected disabled hidden></option>
+                                     <option value="cell">Cell</option>
+                                     <option value="landline">Landline</option>
+                                 </select>
+                             </div>
+                             <div class="phone-info">
+                                 <label for="code">Code</label><br>
+                                 <hr class="solid">
+                                 <select name="code" id="code">
+                                     <option value="none" selected disabled hidden></option>
+                                     <option value="+1">+1 UnitedState</option>
+                                     <option value="+93">+93 Afghanistan</option>
+                                     <option value="+91">+91 India</option>
+                                 </select>
+                             </div>
+                             <div class="phone-info">
+                                 <label for="number">Number</label><br>
+                                 <hr class="solid">
+                                 <input type="text" id="number" name="number">
+                             </div>
+                             <div class="phone-info">
+                                 <label for="ext">Ext</label><br>
+                                 <hr class="solid">
+                                 <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                    onclick="delete_phone_det(this)">
+                                     <i class="fa fa-trash" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="fax-parent mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" class="plus">
+                             Fax
+                             <i class="fa fa-plus-circle" onclick="add_fax(this)"></i>
+                         </a>
+                     </div>
+                     <div class="email-parent mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" class="plus">
+                             Email
+                             <i class="fa fa-plus-circle" onclick="add_email(this)"></i>
+                         </a>
+                         <div class="email" id="email1">
+                             <div class="email-dt">
+                                 <input type="email" id="email" name="email">
+                             </div>
+                             <div class="email-dt">
+                                 <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                    onclick="delete_email(this)">
+                                     <i class="fa fa-trash" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="web mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" id="plus" class="plus">
+                             Website
+                             <i class="fa fa-plus-circle" onclick="add_website(this)" id="web+"></i>
+                         </a>
+                     </div>
+                 </div>
+             </fieldset>
+             <fieldset class="home-cd border" id="cont1">
+                 <legend class="border" style=" border-radius: 5px; padding: 0.2em 0.8em ">
+                     <div class="home">
+                         <select name="homel" id="homel" class="home">
+                             <option value="home">Home</option>
+                             <option value="work">Work</option>
+                             <option value="other">Other</option>
+                         </select><br>
+                     </div>
+                 </legend>
+                 <div class="home-work">
+                     <div class="address-parent">
+                         <div>
+                             <a href="#" style="color: black; text-decoration: none;" class="plus">
+                                 Address
+                                 <i id="plus_add" style="display: none;" class="fa fa-plus-circle" onclick="add_address(this)"></i>
+                             </a>
+                             <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                onclick="delete_home(this)">
+                                 <i class="fa fa-trash" aria-hidden="true"></i>
+                             </a>
+                         </div>
+                         <div class="address" id="address">
+                             <div class="street">
+                                 <label for="street">Street:</label><br>
+                                 <input type="text" id="street" name="street">
+                             </div>
+                             <div class="add">
+                                 <div class="add-info">
+                                     <label for="zip">Zip:</label><br>
+                                     <input type="text" id="zip" name="zip">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="city">City:</label><br>
+                                     <input type="text" id="city" name="city">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="state">State:</label><br>
+                                     <input type="text" id="state" name="state">
+                                 </div>
+                                 <div class="add-info">
+                                     <label for="country">Country:</label><br>
+                                     <input type="text" id="country" name="country">
+                                 </div>
+                                 <div class="add-info">
+                                     <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                        id="trash" onclick="delete_address(this)">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                     </a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="phone-parent mrgn-tp">
+                         <a href="#" style="color: rgb(0, 0, 0); text-decoration: none;" class="plus">
+                             Phone
+                             <i class="fa fa-plus-circle" onclick="add_phone_det(this)"></i>
+                         </a>
+                         <div class="phone-det" id="phone-det1">
+                             <div class="phone-info">
+                                 <label for="type">Type</label><br>
+                                 <hr class="solid">
+                                 <select name="type" id="type">
+                                     <option value="none" selected disabled hidden></option>
+                                     <option value="cell">Cell</option>
+                                     <option value="landline">Landline</option>
+                                 </select>
+                             </div>
+                             <div class="phone-info">
+                                 <label for="code">Code</label><br>
+                                 <hr class="solid">
+                                 <select name="code" id="code">
+                                     <option value="none" selected disabled hidden></option>
+                                     <option value="+1">+1 UnitedState</option>
+                                     <option value="+93">+93 Afghanistan</option>
+                                     <option value="+91">+91 India</option>
+                                 </select>
+                             </div>
+                             <div class="phone-info">
+                                 <label for="number">Number</label><br>
+                                 <hr class="solid">
+                                 <input type="text" id="number" name="number">
+                             </div>
+                             <div class="phone-info">
+                                 <label for="ext">Ext</label><br>
+                                 <hr class="solid">
+                                 <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                    onclick="delete_phone_det(this)">
+                                     <i class="fa fa-trash" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="fax-parent mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" class="plus">
+                             Fax
+                             <i class="fa fa-plus-circle" onclick="add_fax(this)"></i>
+                         </a>
+                     </div>
+                     <div class="email-parent mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" class="plus">
+                             Email
+                             <i class="fa fa-plus-circle" onclick="add_email(this)"></i>
+                         </a>
+                         <div class="email" id="email1">
+                             <div class="email-dt">
+                                 <input type="email" id="email" name="email">
+                             </div>
+                             <div class="email-dt">
+                                 <a href="#" style="color: black; text-decoration: none;" class="trash"
+                                    onclick="delete_email(this)">
+                                     <i class="fa fa-trash" aria-hidden="true"></i>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="web mrgn-tp">
+                         <a href="#" style="color: black; text-decoration: none;" id="plus" class="plus">
+                             Website
+                             <i class="fa fa-plus-circle" onclick="add_website(this)" id="web+"></i>
+                         </a>
+                     </div>
+                 </div>
+             </fieldset>
+         </div>
+     </div>
+     <div class="cont-pre border">
+         <h3 class="heading">Contact Preference</h3>
+         <div class="table">
+             <table class="tab">
+                 <tr>
+                     <td>Type</td>
+                     <td>Address</td>
+                     <td>Phone</td>
+                     <td>Fax</td>
+                     <td>Email</td>
+                     <td>Website</td>
+                 </tr>
+                 <tr>
+                     <td>Apoiment reminder</td>
+                     <td></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td>Mailing</td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+
+                 </tr>
+                 <tr>
+                     <td>Primary</td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                 </tr>
+                 <tr>
+                     <td>Statement</td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                     <td><input type="text" id="blank" name="xyz"></td>
+                 </tr>
+                 <tr>
+                     <td>Preffered Comm</td>
+                     <td colspan="3">
+                         <div class="type" style="display: inline;">
+                             <label for="type">Type:</label>
+                             <select name="marsta" id="race">
+                                 <option value="none" selected disabled hidden></option>
+                                 <option value="email">Email</option>
+                                 <option value="call">Call</option>
+                                 <option value="text">Text</option>
+                             </select>
+                         </div>
+                     </td>
+                     <td colspan="2">
+                         <div class="value" style="display: inline;">
+                             <label for="value">Value:</label>
+                             <select name="marsta" id="race">
+                                 <option value="none" selected disabled hidden></option>
+                                 <option value="option1">Option1</option>
+                                 <option value="option2">Option2</option>
+                                 <option value="option3">Option3</option>
+                             </select>
+                         </div>
+                     </td>
+                 </tr>
+             </table>
+         </div>
+     </div>
+     <div class="oth-detail border">
+         <a href="#" style="color: black; text-decoration: none;" class="plus" onclick="otherdetail()">
+             <i id="c_right" class="fa fa-chevron-circle-right"></i><i id="c_down" style="display: none;"
+                                                                       class="fa fa-chevron-circle-down"></i>
+         </a>
+         <h3 class="heading"> Other Details</h3>
+
+         <div class="oth-det" id="oth-det">
+             <div class="oth-det-cl">
+                 <label for="employment">Employment:</label>
+                 <select name="employment" id="employment">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="full time employment">Full time employment</option>
+                     <option value="path time empolyment">Path time employment</option>
+                     <option value="unemployed">Unemployed</option>
+                 </select><br>
+                 <label for="fcd">First called date:</label>
+                 <input type="date" id="fcd" name="fcd"><br>
+                 <label for="mot-name">Mother's name:</label>
+                 <input type="text" id="mot-name" name="mot-name"><br>
+                 <label for="birth-pl">Birth place:</label>
+                 <input type="text" id="birth-pl" name="birth-pl"><br>
+                 <label for="citizenship">Citizenship:</label>
+                 <select name="citizenship" id="citizenship">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="american">American</option>
+                     <option value="indian">Indian</option>
+                 </select><br>
+                 <label for="note">Note:</label>
+                 <textarea name="note" style="width: 160px;" id="note" cols="15" rows="3"></textarea>
+             </div>
+             <div class="oth-det-cl">
+                 <label for="gender">Gender:</label>
+                 <select name="gender" id="gender">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="male">Male</option>
+                     <option value="Female">Female</option>
+                     <option value="other">Other</option>
+                 </select><br>
+                 <label for="ref-sou">Referral Source:</label>
+                 <select name="ref-sou" id="ref-sou">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="Kaiser hospital">Kaiser hospital</option>
+                 </select><br>
+                 <label for="mot-maid">Mother's Maiden:</label>
+                 <input type="text" id="mot-maid" name="mot-maid"><br>
+                 <label for="mot-iden">Mother Identifier:</label>
+                 <input type="text" id="mot-iden" name="mot-iden"><br>
+                 <label for="religion">Religion:</label>
+                 <select name="Religion" id="Religion">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="agnostic">Agnostic</option>
+                     <option value="kchristian">KChristian: American Baptist Church</option>
+                 </select><br>
+             </div>
+             <div class="oth-det-cl">
+                 <label for="sex-orien">Sexual Orientation:</label>
+                 <select name="sex-orien" id="sex-orien">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="bisexual">Bisexual</option>
+                     <option value="homosexual">Homosexual</option>
+                     <option value="heterosexual">Heterosexual</option>
+                 </select><br>
+                 <label for="mot-mid-nm">Mother's Middel Name:</label>
+                 <input type="text" id="mot-mid-nm" name="mot-mid-nm"><br>
+                 <label for="nationality">Nationality:</label>
+                 <select name="nationality" id="nationality">
+                     <option value="none" selected disabled hidden></option>
+                     <option value="american">American</option>
+                     <option value="indian">Indian</option>
+                 </select><br>
+                 <label for="dri-license">Driver's License:</label>
+                 <input type="text" id="dri-license" name="dri-license"><br>
+             </div>
+         </div>
+     </div>-->
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <ul class="mymenu">
+                <li><a href="#"><i class="fa-solid fa-fax"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-comment-dots"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-bell"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-list-check"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-calendar-plus"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-note-sticky"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/patient.js"></script>
+    <script type="text/javascript" src="./api.js"></script>
+</body>
+
+</html>
