@@ -83,7 +83,64 @@ namespace WebApplication1.Controllers
         /// </summary>
         /// <param name="gl"></param>
         /// <returns> patients data and its allergy</returns>
+
         [HttpGet]
+        public List<patientinfo> getpatientlist(getlist gl)
+        {
+            List<patientinfo> patientallergy = new List<patientinfo>();
+            int flag = 0;
+            string q = @"select * from patient_pagination(";
+            if (check_null(gl.sorttype))
+            {
+                q += @"sorttype=>'" + gl.sorttype + "'";
+                flag = 1;
+            }
+            if (gl.page_size != null)
+            {
+                if (flag == 1)
+                { q += @","; }
+                q += @"page_size=>'" + gl.page_size + "'";
+                flag = 1;
+            }
+            if (gl.page_no != null)
+            {
+                if (flag == 1)
+                { q += @","; }
+                q += @"page_no=>'" + gl.page_no + "'";
+                flag = 1;
+            }
+            q += @")";
+            Console.WriteLine(q);
+            string? sqlDataSource = _configuration.GetConnectionString("WebApiDatabase");
+            using (NpgsqlConnection mycon = new NpgsqlConnection(sqlDataSource))
+            {
+                mycon.Open();
+                using (NpgsqlCommand cmd = new NpgsqlCommand(q, mycon))
+                {
+                    NpgsqlDataReader r = cmd.ExecuteReader();
+                    int i = 1;
+                    while (r.Read())
+                    {
+                        patientinfo pa = new patientinfo();
+                        pa.patientid = Convert.ToInt32(r.GetValue(0).ToString());
+                        pa.firstname = r.GetValue(1).ToString();
+                        pa.lastname = r.GetValue(2).ToString();
+                        while(Convert.ToInt32(r.GetValue(7).ToString()) == i)
+                        {
+                            patientallergyinfo al = new patientallergyinfo();
+                            al.PatientAllergyId = Convert.ToInt32(r.GetValue(4).ToString());
+                            al.AllergyId = Convert.ToInt32(r.GetValue(5).ToString());
+                            al.Note = r.GetValue(6).ToString();
+                            pa.allergys.Add(al);
+                        }
+                        patientallergy.Add(pa);
+                    }
+                    r.Close();
+                }
+            }
+            return patientallergy;
+        }
+        /*[HttpGet]
         [Route("getlist")]
         public List<patientinfo> getpatientallergy(getlist gl)
         {
@@ -151,7 +208,7 @@ namespace WebApplication1.Controllers
                 
             }
             return patientallergy;
-        }
+        }*/
 
         /// <summary>
         /// 
